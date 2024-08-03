@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+      }
+      .button-container {
+        display: flex;
+        /* align-items: center; */
+        flex-direction: row;
+        justify-content: center;
+      }
+      #log,
+      #stat {
+        border: 1px solid black;
+        /* padding: 21px; */
+        width: 500px;
+        height: 50px;
+        padding: 10px;
+        font-size: 20m;
+        text-align: center;
+        margin-top: 20px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"><h1>Key Logger</h1></div>
+    <div class="button-container">
+      <button id="start-btn">Start key press</button>
+      <button id="stop-btn">Stop key press</button>
+    </div>
+    <div class="button-container">
+      <div id="log"></div>
+      <div id="stat"></div>
+    </div>
+  </body>
+  <script>
+    let log = document.getElementById("log");
+    let stat = document.getElementById("stat");
+    let startBtn = document.getElementById("start-btn");
+    let stopBtn = document.getElementById("stop-btn");
+
+    startBtn.addEventListener("click", () => {
+      document.addEventListener("keydown", handledown);
+      document.addEventListener("keyup", handleup);
+    });
+
+    stopBtn.addEventListener("click", () => {
+      document.removeEventListener("keydown", handledown);
+      document.removeEventListener("keyup", handleup);
+      log.textContent = "";
+      stat.textContent = "";
+    });
+
+    const handledown = (e) => {
+      log.textContent = `key ${e.key} pressed down`;
+      stat.textContent = `key is down`;
+    };
+    const handleup = (e) => {
+      log.textContent = `key ${e.key} pressed up`;
+      stat.textContent = `key is up`;
+    };
+  </script>
+</html>
