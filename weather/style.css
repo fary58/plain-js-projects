@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#main{
+    margin-top: 50px;
+}
+
+#main input{
+    padding: 7px;
+    margin-bottom: 40px;
+       border: none;
+}
+#main button{
+    background-color: #86d286;
+    padding: 7px;
+    border-radius: 8px;
+    border: none;
+}
+
+#result-area{
+    border: 1px solid black;
+    padding: 30vh;
+    font-family: math;
+}
+.city{
+    font-size: 25px;
+}
+.temperature{
+    font-size: 20px;
+}
+.description{
+    font-size: 10px;
+    font-family: sans-serif;
+}
